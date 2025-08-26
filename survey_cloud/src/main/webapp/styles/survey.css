@@ -1,0 +1,117 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Toàn màn hình */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card nằm giữa */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Logo căn giữa */
+.logo {
+    display: block;
+    margin: 0 auto 15px;
+    width: 80px;
+}
+
+/* Tiêu đề */
+h1 {
+    font-size: 1.6em;
+    color: #1e88e5;
+    margin-bottom: 10px;
+}
+h2 {
+    font-size: 1.2em;
+    color: #1565c0;
+    text-align: left;
+    margin: 20px 0 10px;
+}
+
+/* Nội dung phụ */
+p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Form group */
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+
+/* Radio & Checkbox */
+.radio-group, .checkbox-group {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    color: #444;
+}
+
+/* Button */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: #1e88e5;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.btn-submit:hover {
+    background: #1565c0;
+}
+
+/* Hiệu ứng */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

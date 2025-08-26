@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey of Cloud</title>
+    <link rel="stylesheet" href="styles/survey.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card">
+            <form action="survey" method="post" class="survey-form">
+                <img src="images/murachlogo.jpg" alt="Murach" class="logo">
+                <h1>Survey of Cloud ☁️</h1>
+                <p>If you have a moment, we'd appreciate it if you would fill out this survey.</p>
+                
+                <h2>Your Information</h2>
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dateOfBirth">
+                </div>
+
+                <h2>How did you hear about us?</h2>
+                <div class="radio-group">
+                    <label><input type="radio" name="heardFrom" value="Search Engine" checked> Search engine</label>
+                    <label><input type="radio" name="heardFrom" value="Friend"> Word of mouth</label>
+                    <label><input type="radio" name="heardFrom" value="Social Media"> Social Media</label>
+                    <label><input type="radio" name="heardFrom" value="Other"> Other</label>
+                </div>
+
+                <h2>Would you like to receive announcements about new CDs and special offers?</h2>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="wantsUpdates"> YES, I'd like that.</label>
+                    <label><input type="checkbox" name="emailOK"> YES, please send me email announcements.</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Please contact me by:</label>
+                    <select name="contactVia">
+                        <option value="Both" selected>Email or postal mail</option>
+                        <option value="Email">Email only</option>
+                        <option value="Postal Mail">Postal mail only</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
