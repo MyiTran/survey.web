@@ -1,18 +1,26 @@
-# Sử dụng image Tomcat chính thức
-FROM tomcat:9.0-jdk17
+FROM openjdk:24-jdk-slim AS base
 
-# Xóa các webapp mặc định (ROOT, docs, examples…) để Tomcat sạch sẽ
+# Cài wget + tar để tải Tomcat
+RUN apt-get update && apt-get install -y wget tar && rm -rf /var/lib/apt/lists/*
+
+# Tải và cài Tomcat
+RUN wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.tar.gz \
+    && tar xzf apache-tomcat-9.0.108.tar.gz \
+    && mv apache-tomcat-9.0.108 /usr/local/tomcat \
+    && rm apache-tomcat-9.0.108.tar.gz
+
+# Biến môi trường Tomcat
+ENV CATALINA_HOME=/usr/local/tomcat
+ENV PATH="$CATALINA_HOME/bin:$PATH"
+
+# Xóa webapps mặc định và copy file WAR của bạn vào ROOT
 RUN rm -rf /usr/local/tomcat/webapps/*
-
-# Copy file WAR của bạn vào thư mục webapps, đổi tên thành ROOT.war
-# để khi mở domain là chạy luôn (khỏi cần /survey_sol)
 COPY survey_sol.war /usr/local/tomcat/webapps/ROOT.war
 
-# Render yêu cầu app phải lắng nghe trên cổng $PORT
-# => chỉnh lại server.xml để thay cổng 8080 bằng $PORT
+# Render cung cấp biến môi trường PORT, ta cần Tomcat lắng nghe ở đó
 RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
 
-# Expose port (không bắt buộc, Render tự mapping nhưng để rõ ràng)
+# Expose port
 EXPOSE 8080
 
 # Chạy Tomcat
